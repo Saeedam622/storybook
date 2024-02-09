@@ -41,7 +41,7 @@ describe('composeStory', () => {
     };
 
     const composedStory = composeStory(Story, meta);
-    await composedStory.play({ canvasElement: null });
+    await composedStory.play!({ canvasElement: null });
     expect(spy).toHaveBeenCalledWith(
       expect.objectContaining({
         args: {
@@ -50,16 +50,6 @@ describe('composeStory', () => {
         },
       })
     );
-  });
-
-  it('should throw when executing the play function but the story does not have one', async () => {
-    const Story = () => {};
-    Story.args = {
-      primary: true,
-    };
-
-    const composedStory = composeStory(Story, meta);
-    expect(composedStory.play({ canvasElement: null })).rejects.toThrow();
   });
 
   it('should throw an error if Story is undefined', () => {

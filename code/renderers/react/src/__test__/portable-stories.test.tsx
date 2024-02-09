@@ -99,7 +99,7 @@ describe('CSF3', () => {
 
     const { container } = render(<CSF3InputFieldFilled />);
 
-    await CSF3InputFieldFilled.play({ canvasElement: container });
+    await CSF3InputFieldFilled.play!({ canvasElement: container });
 
     const input = screen.getByTestId('input') as HTMLInputElement;
     expect(input.value).toEqual('Hello world!');
