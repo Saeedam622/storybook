@@ -57,6 +57,17 @@ export const getBuilderPackageName = (mainConfig?: StorybookConfigRaw) => {
 };
 
 /**
+ * Given a Storybook configuration object, retrieves the configuration for the framework.
+ * @param mainConfig - The main Storybook configuration object to lookup.
+ * @returns - The configuration for the framework. If not found, returns null.
+ */
+export const getFrameworkOptions = (
+  mainConfig?: StorybookConfigRaw
+): Record<string, any> | null => {
+  return typeof mainConfig?.framework === 'string' ? null : mainConfig?.framework?.options ?? null;
+};
+
+/**
  * Returns a renderer package name given a framework package name.
  * @param frameworkPackageName - The package name of the framework to lookup.
  * @returns - The corresponding package name in `rendererPackages`. If not found, returns null.

@@ -231,7 +231,7 @@ export async function runFixes({
 
     if (result) {
       logger.info(`\n🔎 found a '${chalk.cyan(f.id)}' migration:`);
-      const message = f.prompt(result);
+      const message = await f.prompt(result);
 
       logger.info(
         boxen(message, {

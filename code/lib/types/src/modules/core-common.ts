@@ -19,6 +19,9 @@ interface ServerChannel {
 }
 
 export interface CoreConfig {
+  /**
+   * @deprecated Use `framework.options.builder` instead. This will be removed in Storybook 9.0
+   */
   builder?:
     | BuilderName
     | {
